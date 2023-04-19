@@ -2,13 +2,13 @@ package com.example.cinema_task.models;
 
 import jakarta.persistence.*;
 
-@Entity(name = "movie")
+@Entity(name = "movies")
 public class Movie {
 
     // create db primary key for movie id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;
@@ -30,11 +30,11 @@ public class Movie {
     }
 
     // GETTERS & SETTERS
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -14,16 +14,29 @@ public class MovieService {
     @Autowired
     MovieRepository movieRepository;
 
+    // MVP
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
     }
 
-    public Optional<Movie> getMovieById(int id){
+    public Optional<Movie> getMovieById(long id){
         return movieRepository.findById(id);
     }
 
     public Movie addMovie(Movie newMovie){
         return movieRepository.save(newMovie);
     }
+
+    // Extension
+    public Movie updateMovie(Movie movie){
+        movieRepository.save(movie);
+        return movie;
+    }
+
+    public void deleteMovie(Long id){
+        movieRepository.deleteById(id);
+    }
+
+
 
 }
